@@ -1,0 +1,199 @@
+@use "@styles/variables" as *;
+@use "sass:color";
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: $spacing-xl;
+  
+  &__container {
+    width: 100%;
+    max-width: 600px;
+    background-color: $color-white;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-md;
+    padding: $spacing-xl;
+    margin-top: $spacing-xl;
+  }
+  
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-2xl;
+    color: $color-gray-800;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+  
+  &__avatar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: $spacing-lg;
+    
+    &-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: $color-primary;
+      color: $color-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+    }
+  }
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+  
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+  
+  &__label {
+    font-weight: $font-weight-medium;
+    color: $color-gray-700;
+    font-size: $font-size-sm;
+  }
+  
+  &__input, &__textarea {
+    padding: $spacing-sm;
+    border: 1px solid $color-gray-300;
+    border-radius: $border-radius-md;
+    font-size: $font-size-md;
+    transition: all $transition-fast;
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+    
+    &:disabled {
+      background-color: $color-gray-100;
+      cursor: not-allowed;
+    }
+    
+    &--editable {
+      background-color: $color-white;
+      border-color: $color-gray-400;
+      cursor: text;
+      
+      &:hover {
+        border-color: $color-primary;
+      }
+    }
+  }
+  
+  &__textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  &__help-text {
+    font-size: $font-size-xs;
+    color: $color-gray-600;
+    margin-top: $spacing-xs;
+  }
+  
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacing-lg;
+    gap: $spacing-md;
+  }
+  
+  &__button {
+    padding: $spacing-sm $spacing-lg;
+    border-radius: $border-radius-md;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: all $transition-fast;
+    border: none;
+    font-size: $font-size-sm;
+    
+    &--primary {
+      background-color: $color-primary;
+      color: $color-white;
+      
+      &:hover {
+        background-color: color.adjust($color-primary, $lightness: -10%);
+      }
+      
+      &:disabled {
+        background-color: color.adjust($color-primary, $lightness: 20%);
+        cursor: not-allowed;
+      }
+    }
+    
+    &--secondary {
+      background-color: $color-white;
+      color: $color-gray-700;
+      border: 1px solid $color-gray-300;
+      
+      &:hover {
+        background-color: $color-gray-100;
+        border-color: $color-gray-400;
+      }
+      
+      &:disabled {
+        background-color: $color-gray-100;
+        color: $color-gray-500;
+        cursor: not-allowed;
+      }
+    }
+    
+    &--danger {
+      background-color: $color-white;
+      color: $color-gray-700;
+      border: 1px solid $color-gray-300;
+      
+      &:hover {
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+        color: #842029;
+      }
+    }
+  }
+  
+  &__error {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: $spacing-sm;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-md;
+    border: 1px solid #f5c2c7;
+  }
+  
+  &__success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: $spacing-sm;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-md;
+    border: 1px solid #badbcc;
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-md;
+    
+    &__container {
+      padding: $spacing-lg;
+    }
+    
+    &__actions {
+      flex-direction: column;
+      gap: $spacing-sm;
+    }
+    
+    &__button {
+      width: 100%;
+    }
+  }
+}

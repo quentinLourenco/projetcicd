@@ -1,0 +1,42 @@
+@use "@styles/variables" as *;
+
+.hero {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: $spacing-2xl $spacing-md;
+  margin-bottom: $spacing-xl;
+  border-radius: $border-radius-md;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  &__title {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-md;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  &__subtitle {
+    font-size: $font-size-lg;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl $spacing-md;
+    
+    &__title {
+      font-size: $font-size-2xl;
+    }
+    
+    &__subtitle {
+      font-size: $font-size-md;
+    }
+  }
+}

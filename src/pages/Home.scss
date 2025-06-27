@@ -1,0 +1,59 @@
+@use "@styles/variables" as *;
+
+.hero {
+  background-color: $color-primary;
+  color: $color-white;
+  padding: $spacing-2xl $spacing-md;
+  margin-bottom: $spacing-xl;
+  border-radius: $border-radius-md;
+  text-align: center;
+  background-image: linear-gradient(135deg, rgba(255, 107, 107, 0.9) 0%, rgba(255, 107, 107, 0.7) 100%), url('https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  
+  h1 {
+    font-size: $font-size-3xl;
+    margin-bottom: $spacing-md;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  p {
+    font-size: $font-size-lg;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xl $spacing-md;
+    
+    h1 {
+      font-size: $font-size-2xl;
+    }
+    
+    p {
+      font-size: $font-size-md;
+    }
+  }
+}
+
+section {
+  margin-bottom: $spacing-2xl;
+  
+  h2 {
+    margin-bottom: $spacing-lg;
+    color: $color-gray-900;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background-color: $color-primary;
+    }
+  }
+}

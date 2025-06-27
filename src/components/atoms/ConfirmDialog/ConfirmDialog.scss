@@ -1,0 +1,111 @@
+@use "@styles/variables" as *;
+@use "sass:color";
+
+.confirm-dialog {
+  // Propriétés principales du dialogue
+  background-color: $color-white;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-lg;
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  animation: scaleIn $transition-normal forwards;
+  
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-black, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: $z-index-modal;
+    animation: fadeIn $transition-normal forwards;
+    padding: $spacing-md;
+  }
+
+  &__header {
+    padding: $spacing-md;
+    border-bottom: 1px solid $color-gray-200;
+  }
+
+  &__title {
+    font-family: $font-family-heading;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-gray-800;
+    margin: 0;
+  }
+
+  &__content {
+    padding: $spacing-lg;
+  }
+
+  &__message {
+    font-size: $font-size-md;
+    color: $color-gray-700;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: $spacing-md;
+    border-top: 1px solid $color-gray-200;
+    gap: $spacing-sm;
+  }
+
+  &__button {
+    padding: $spacing-xs $spacing-lg;
+    border-radius: $border-radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &--cancel {
+      background-color: $color-white;
+      border: 1px solid $color-gray-300;
+      color: $color-gray-700;
+
+      &:hover {
+        background-color: $color-gray-100;
+        border-color: $color-gray-400;
+      }
+    }
+
+    &--confirm {
+      background-color: $color-primary;
+      border: 1px solid $color-primary;
+      color: $color-white;
+
+      &:hover {
+        background-color: color.adjust($color-primary, $lightness: -10%);
+        border-color: color.adjust($color-primary, $lightness: -10%);
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

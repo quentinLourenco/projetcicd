@@ -1,0 +1,87 @@
+@use "variables";
+@use "sass:color";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: variables.$font-family-body;
+  font-size: variables.$font-size-base;
+  line-height: 1.5;
+  color: variables.$color-gray-800;
+  background-color: variables.$color-gray-100;
+}
+
+a {
+  color: variables.$color-primary;
+  text-decoration: none;
+  transition: color variables.$transition-fast;
+  
+  &:hover {
+    color: color.adjust(variables.$color-primary, $lightness: -10%);
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: variables.$font-family-heading;
+  font-weight: variables.$font-weight-bold;
+  margin-bottom: variables.$spacing-md;
+  line-height: 1.2;
+}
+
+h1 { font-size: variables.$font-size-3xl; }
+h2 { font-size: variables.$font-size-2xl; }
+h3 { font-size: variables.$font-size-xl; }
+h4 { font-size: variables.$font-size-lg; }
+h5 { font-size: variables.$font-size-md; }
+h6 { font-size: variables.$font-size-sm; }
+
+p {
+  margin-bottom: variables.$spacing-md;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: variables.$container-max-width;
+  margin: 0 auto;
+  padding: 0 variables.$container-padding;
+  margin-top: variables.$spacing-xl;
+}
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-grow { flex-grow: 1; }
+
+.mt-xs { margin-top: variables.$spacing-xs; }
+.mt-sm { margin-top: variables.$spacing-sm; }
+.mt-md { margin-top: variables.$spacing-md; }
+.mt-lg { margin-top: variables.$spacing-lg; }
+.mt-xl { margin-top: variables.$spacing-xl; }
+
+.mb-xs { margin-bottom: variables.$spacing-xs; }
+.mb-sm { margin-bottom: variables.$spacing-sm; }
+.mb-md { margin-bottom: variables.$spacing-md; }
+.mb-lg { margin-bottom: variables.$spacing-lg; }
+.mb-xl { margin-bottom: variables.$spacing-xl; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }

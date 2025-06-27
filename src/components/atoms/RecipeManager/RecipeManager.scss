@@ -1,0 +1,218 @@
+@use "@styles/variables" as *;
+@use "sass:color";
+
+.recipe-manager {
+  width: 100%;
+  
+  h2 {
+    font-family: $font-family-heading;
+    font-size: $font-size-xl;
+    color: $color-gray-800;
+    margin-bottom: $spacing-lg;
+    text-align: center;
+  }
+  
+  hr {
+    margin: $spacing-xl 0;
+    border: none;
+    height: 1px;
+    background-color: $color-gray-300;
+  }
+  
+  // Formulaire d'ajout/modification de recette
+  .recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    background-color: $color-gray-100;
+    padding: $spacing-xl;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-xl;
+    box-shadow: $shadow-sm;
+    
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+      
+      &--half {
+        flex: 1;
+      }
+    }
+    
+    .form-row {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-lg;
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+      }
+    }
+    
+    .list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-sm;
+      margin-bottom: $spacing-xs;
+      
+      .step-number {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: $color-primary;
+        color: $color-white;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-bold;
+        flex-shrink: 0;
+        margin-top: $spacing-xs;
+      }
+      
+      input, textarea {
+        flex: 1;
+      }
+    }
+    
+    input, textarea, select {
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid $color-gray-300;
+      border-radius: $border-radius-md;
+      font-family: $font-family-body;
+      font-size: $font-size-md;
+      transition: all $transition-fast;
+      background-color: $color-white;
+      
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+      }
+    }
+    
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    
+    label {
+      font-weight: $font-weight-medium;
+      color: $color-gray-700;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+    
+    .add-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-xs;
+      padding: $spacing-sm;
+      background-color: transparent;
+      color: $color-primary;
+      border: 1px dashed $color-primary;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+      cursor: pointer;
+      margin-top: $spacing-xs;
+      transition: all $transition-fast;
+      
+      &:hover {
+        background-color: rgba($color-primary, 0.05);
+      }
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    
+    .form-buttons {
+      display: flex;
+      flex-direction: row;
+      gap: $spacing-md;
+      margin-top: $spacing-lg;
+      justify-content: center;
+      
+      button {
+        padding: $spacing-sm $spacing-lg;
+        border-radius: $border-radius-md;
+        font-weight: $font-weight-medium;
+        cursor: pointer;
+        transition: all $transition-fast;
+        border: none;
+        font-size: $font-size-sm;
+      }
+      
+      .primary-button {
+        background-color: $color-primary;
+        color: $color-white;
+        
+        &:hover {
+          background-color: color.adjust($color-primary, $lightness: -10%);
+        }
+      }
+      
+      .secondary-button {
+        background-color: $color-gray-200;
+        color: $color-gray-700;
+        
+        &:hover {
+          background-color: $color-gray-300;
+        }
+      }
+      
+      @media (max-width: $breakpoint-md) {
+        flex-direction: column;
+      }
+    }
+  }
+  
+  // État vide
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-xl;
+    text-align: center;
+    background-color: $color-gray-100;
+    border-radius: $border-radius-md;
+    grid-column: 1 / -1;
+    
+    svg {
+      color: $color-gray-400;
+      margin-bottom: $spacing-md;
+    }
+    
+    p {
+      margin: $spacing-xs 0;
+      color: $color-gray-600;
+      
+      &:last-child {
+        font-style: italic;
+      }
+    }
+  }
+  
+  // Liste des recettes
+  .recipe-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-lg;
+    
+    .recipe-item {
+      display: contents;
+      height: 100%;
+    }
+  }
+  
+  @media (max-width: $breakpoint-md) {
+    .recipe-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
